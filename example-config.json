@@ -1,0 +1,12 @@
+{
+    "listen": "0.0.0.0",
+    "port": 44550,
+    "modules": {
+        "test": {
+            "commands": [
+                {"command":  "cmd.exe", "args": ["/C","whoami"], "cwd": "C:/wamp64/"},
+                {"command":  "cmd.exe", "args": ["/C","cd","C:/wamp64"], "cwd": "C:/"}
+            ]
+        }
+    }
+}
