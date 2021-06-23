@@ -19,7 +19,7 @@ app.get("/:module", (req, res) => {
             let error = false;
             for(let i = 0; i < commands.length; i++){
                 let c_meta = commands[i];
-                log += "Script: " + c_meta.command + c_meta.args.join();
+                log += "Script: " + c_meta.command + c_meta.args.join() + "\n";
                 try{
                     let c_log = await executeCommand(c_meta.command, c_meta.args, c_meta.cwd);
                     log += c_log + "\n\n";
