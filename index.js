@@ -1,4 +1,4 @@
-const config = require("./example-config.json");
+const config = require("./config.json");
 
 const express = require("express");
 const { spawn } = require("child_process");
