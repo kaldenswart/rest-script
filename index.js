@@ -25,7 +25,10 @@ app.get("/:module", (req, res) => {
     }
 });
 
-app.listen(config.port, config.listen);
+app.listen(config.port, config.listen, null, () => {
+    console.log("rest-script started with following config:");
+    console.log(config);
+});
 
 function executeCommand(command, arguments, cwd){
     return new Promise(async (resolve, reject) => {
