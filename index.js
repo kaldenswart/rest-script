@@ -6,6 +6,8 @@ const { spawn } = require("child_process");
 const app = express();
 
 app.get("/:module", (req, res) => {
+    res.header("Content-Type", "text/plain");
+
     const module_key = req.params.module.replace(/[^a-zA-Z0-9\-]/g, '');
 
     if(config.modules[module_key] !== undefined){
