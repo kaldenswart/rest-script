@@ -4,8 +4,7 @@
     "modules": {
         "test": {
             "commands": [
-                {"command":  "cmd.exe", "args": ["/C","whoami"], "cwd": "C:/wamp64/"},
-                {"command":  "cmd.exe", "args": ["/C","cd","C:/wamp64"], "cwd": "C:/"}
+                {"command":  "whoami", "args": [], "cwd": "C:/bin/"}
             ]
         }
     }

@@ -12,14 +12,30 @@ app.get("/:module", (req, res) => {
         const module = config.modules[module_key];
         const commands = module.commands;
 
-        for(let i = 0; i < commands.length; i++){
-            let c_meta = commands[i];
-            executeCommand(c_meta.command, c_meta.args, c_meta.cwd).then((log) => {
-                res.status(200).send(log);
-            }).catch((log) => {
-                res.status(500).send(log);
-            });
-        }
+        (new Promise(async (resolve, reject) => {
+            let log = "";
+            let error = false;
+            for(let i = 0; i < commands.length; i++){
+                let c_meta = commands[i];
+                log += "Script: " + c_meta.command + c_meta.args.join();
+                try{
+                    let c_log = await executeCommand(c_meta.command, c_meta.args, c_meta.cwd);
+                    log += c_log + "\n\n";
+                }catch (c_log){
+                    error = true;
+                    log += c_log + "\n\n";
+                }
+            }
+            if(!error){
+                resolve(log);
+            }else{
+                reject(log);
+            }
+        })).then((log) => {
+            res.status(200).send(log);
+        }).catch((log) => {
+            res.status(500).send(log);
+        });
     }else{
         res.status(400).send();
     }
