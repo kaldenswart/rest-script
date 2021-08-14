@@ -55,7 +55,7 @@ app.get("/:module", (req, res, next) => {
             next();
         }
     }else{
-        res.status(400).send();
+        res.status(400).send("Error Code: 1");
     }
 });
 
@@ -99,12 +99,12 @@ app.post("/:module", async (req, res, next) => {
                                 }
                             });
                         } else {
-                            res.status(400).send();
+                            res.status(400).send("Error Code: 1");
                         }
                     }
                 }
             } else {
-                res.status(400).send();
+                res.status(400).send("Error Code: 2");
             }
 
             const commands = module.commands;
@@ -138,7 +138,7 @@ app.post("/:module", async (req, res, next) => {
         }
 
     } else {
-        res.status(400).send();
+        res.status(400).send("Error Code: 3");
     }
 });
 
