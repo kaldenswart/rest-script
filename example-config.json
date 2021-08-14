@@ -6,6 +6,15 @@
             "commands": [
                 {"command":  "whoami", "args": [], "cwd": "C:/bin/"}
             ]
+        },
+        "test-file": {
+            "file": {
+                "accept": "txt",
+                "output": "C:/bin/"
+            },
+            "commands": [
+                {"command":  "whoami", "args": [], "cwd": "C:/bin/"}
+            ]
         }
     }
 }
